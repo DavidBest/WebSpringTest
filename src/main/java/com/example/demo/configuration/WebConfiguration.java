@@ -13,7 +13,7 @@ public class WebConfiguration extends AbstractAnnotationConfigDispatcherServletI
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[0];
+        return new Class<?>[]{ActionConfiguration.class};
     }
 
     @Override
