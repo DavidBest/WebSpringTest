@@ -22,10 +22,11 @@ public class HomeController {
     @RequestMapping(value = {"/{id}"}, method = RequestMethod.GET)
     public String home(@PathVariable("id") String val, Model model) {
             model.addAttribute("name", val);
-        return "home";
+        return "yourHome";
     }
     @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String home2(Model model) {
+        model.addAttribute("user",new User());
         return "home";
     }
 
@@ -39,7 +40,8 @@ public class HomeController {
     public String yourHomePostFirst(Model model) {
         return "redirect:/home/david";
     }
-    @RequestMapping(value = "/", method = RequestMethod.POST, name = "11")
+
+        @RequestMapping(value = "/postUser", method = RequestMethod.POST)
     public String homePostSecond(@Valid User user, Errors errors) {
         if (errors.hasErrors())
             return "home";
